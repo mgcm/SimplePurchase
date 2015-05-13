@@ -17,6 +17,11 @@ static Purchaser *_purchaser;
     [_purchaser addObserverForProduct:productId block:block];
 }
 
++ (void)loadProduct:(NSString *)productId block:(void (^)(SKProduct *, NSError *))block
+{
+    [_purchaser loadProduct:productId block:block];
+}
+
 + (void)buyProduct:(NSString *)productId block:(void(^)(NSError *error))block
 {
     [_purchaser buyProduct:productId block:block];

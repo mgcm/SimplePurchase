@@ -33,6 +33,14 @@
     [array addObject:block];
 }
 
+- (void)loadProduct:(NSString *)productId block:(void (^)(SKProduct *, NSError *))block
+{
+    [_cache loadProduct:productId block:^(SKProduct *product, NSError *error)
+     {
+         block(product, error);
+     }];
+}
+
 - (void)buyProduct:(NSString *)productId block:(void (^)(NSError *))block
 {
     [_cache loadProduct:productId block:^(SKProduct *product, NSError *error)

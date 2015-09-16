@@ -42,7 +42,9 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-    _product = response.products[0];    
+    if (response.products.count > 0) {
+        _product = response.products[0];
+    }
 }
 
 - (void)requestDidFinish:(SKRequest *)request
